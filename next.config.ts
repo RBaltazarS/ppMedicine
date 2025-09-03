@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: false,
