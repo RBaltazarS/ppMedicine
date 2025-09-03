@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Stethoscope, Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
+
 const footerSections = [
   {
     title: 'Navegação',

@@ -10,6 +10,7 @@ import { BookOpen, Clock, User, ArrowRight, Search, Filter, Tag } from 'lucide-r
 import { articles, categories, getArticlesByCategory, getFeaturedArticles } from '@/data/articles';
 import { formatDate } from '@/lib/utils';
 
+
 export default function ArticlesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState('');

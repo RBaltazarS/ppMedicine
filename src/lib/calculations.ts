@@ -1,5 +1,6 @@
 import { CooperTestInput, OneRMInput, BodyFatInput, CalculationResult, ValidationResult } from '@/types';
 
+
 // Cooper Test Calculator
 export function calculateCooperTest(input: CooperTestInput): CalculationResult {
   const { distance, age, gender } = input;

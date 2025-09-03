@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { UserPreferences } from '@/types';
 
+
 // Default preferences
 const defaultPreferences: UserPreferences = {
   units: 'metric',

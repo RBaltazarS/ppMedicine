@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { AssessmentState, AssessmentHistory, CalculationResult } from '@/types';
 
+
 // Action types
 type AssessmentAction =
   | { type: 'SET_CURRENT_PROTOCOL'; payload: string }
