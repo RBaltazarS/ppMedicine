@@ -74,15 +74,14 @@ export default function NotFound() {
               </Link>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
+              type="button"
               onClick={() => window.history.back()}
-              className="text-blue-600 hover:text-blue-700 text-sm flex items-center justify-center w-full mt-4"
+              className="text-blue-600 hover:text-blue-700 text-sm flex items-center justify-center w-full mt-4 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-1" />
               Voltar à página anterior
-            </motion.button>
+            </button>
           </motion.div>
 
           <motion.div
