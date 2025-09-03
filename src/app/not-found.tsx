@@ -74,14 +74,13 @@ export default function NotFound() {
               </Link>
             </div>
 
-            <button
-              type="button"
-              onClick={() => window.history.back()}
+            <Link
+              href="/"
               className="text-blue-600 hover:text-blue-700 text-sm flex items-center justify-center w-full mt-4 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-1" />
               Voltar à página anterior
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div
