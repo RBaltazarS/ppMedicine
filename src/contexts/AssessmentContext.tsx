@@ -158,8 +158,8 @@ export const useAssessmentActions = () => {
         }
         
         // Use a interface para tipar os dados ao iterar
-        Object.entries(data.assessments || {}).forEach(([protocolId, protocolData]) => {
-          const typedProtocolData = protocolData as ProtocolData; // Fazemos um cast para o tipo que definimos
+        Object.entries(data.assessments || {}).forEach(([protocolId, protocolData]: [string, unknown]) => {
+          const typedProtocolData = protocolData as ProtocolData;
           typedProtocolData.results?.forEach((result) => {
             history.push({
               protocolId,
@@ -186,6 +186,7 @@ export const useAssessmentActions = () => {
   return {
     setCurrentProtocol,
     addResult,
+    //addResult,
     clearResults,
     loadHistory
   };
