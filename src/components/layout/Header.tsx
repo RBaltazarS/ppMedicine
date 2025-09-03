@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Stethoscope, Activity, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
+/*import { cn } from '@/lib/utils'; */
 
 const navigationItems = [
   { label: 'Início', href: '/' },

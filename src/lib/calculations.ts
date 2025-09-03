@@ -98,7 +98,8 @@ export function calculateOneRM(input: OneRMInput): CalculationResult {
   const average = Object.values(formulas).reduce((a, b) => a + b) / Object.values(formulas).length;
   
   const strengthCategory = getStrengthCategory(average, input);
-  const recommendations = getStrengthRecommendations(experience, average, strengthCategory);
+  // As variáveis `oneRM` e `category` não são usadas aqui. Elas foram removidas.
+  const recommendations = getStrengthRecommendations(experience);
   
   return {
     value: parseFloat(average.toFixed(1)),
@@ -125,7 +126,7 @@ function getStrengthCategory(oneRM: number, input: OneRMInput): string {
   return 'Novato';
 }
 
-function getStrengthRecommendations(experience: string, oneRM: number, category: string): string[] {
+function getStrengthRecommendations(experience: string): string[] {
   const baseRecommendations = [
     'Mantenha uma progressão gradual nos treinos',
     'Priorize a técnica antes de aumentar a carga'
@@ -157,7 +158,6 @@ function getStrengthRecommendations(experience: string, oneRM: number, category:
       return baseRecommendations;
   }
 }
-
 // Body Fat Calculator
 export function calculateBodyFat(input: BodyFatInput): CalculationResult {
   const { method } = input;
@@ -193,7 +193,7 @@ function calculateNavyBodyFat(input: BodyFatInput): CalculationResult {
   }
   
   const category = getBodyFatCategory(bodyFatPercentage, gender);
-  const recommendations = getBodyFatRecommendations(category, bodyFatPercentage, gender);
+  const recommendations = getBodyFatRecommendations(category);
   
   return {
     value: parseFloat(bodyFatPercentage.toFixed(1)),
@@ -221,7 +221,7 @@ function calculateBMIBodyFat(input: BodyFatInput): CalculationResult {
   }
   
   const category = getBodyFatCategory(bodyFatPercentage, gender);
-  const recommendations = getBodyFatRecommendations(category, bodyFatPercentage, gender);
+  const recommendations = getBodyFatRecommendations(category);
   
   return {
     value: parseFloat(bodyFatPercentage.toFixed(1)),
@@ -264,7 +264,7 @@ function getBodyFatCategory(bodyFatPercentage: number, gender: 'male' | 'female'
   return 'Não classificado';
 }
 
-function getBodyFatRecommendations(category: string, percentage: number, gender: 'male' | 'female'): string[] {
+function getBodyFatRecommendations(category: string): string[] {
   const baseRecommendations = [
     'Mantenha uma dieta balanceada e equilibrada',
     'Pratique exercícios regularmente'

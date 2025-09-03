@@ -127,7 +127,7 @@ export default function ProtocolsPage() {
                   { icon: Target, value: '3', label: 'Protocolos Disponíveis' },
                   { icon: Clock, value: '10-15', label: 'Minutos por Teste' },
                   { icon: BarChart3, value: '95%', label: 'Precisão Científica' }
-                ].map((stat, index) => (
+                ].map((stat, /*index */) => (
                   <Card key={stat.label} className="text-center p-6">
                     <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-100 to-orange-100 rounded-full mb-4">
                       <stat.icon className="h-6 w-6 text-blue-600" />

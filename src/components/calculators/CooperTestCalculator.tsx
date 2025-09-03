@@ -36,7 +36,6 @@ export function CooperTestCalculator({ onResult }: CooperTestCalculatorProps) {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     reset
   } = useForm<CooperTestFormData>({
     resolver: zodResolver(cooperTestSchema)

@@ -140,9 +140,27 @@ export const useAssessmentActions = () => {
       if (savedData) {
         const data = JSON.parse(savedData);
         const history: AssessmentHistory[] = [];
+
+        // Define a interface para os dados salvos no localStorage
+        interface SavedResult {
+          value: number;
+          interpretation: string;
+          recommendations: string[];
+          category?: string;
+          unit: string;
+          timestamp: string;
+          inputs: Record<string, number>;
+        }
+
+        interface ProtocolData {
+          results: SavedResult[];
+          lastUpdated: string;
+        }
         
-        Object.entries(data.assessments || {}).forEach(([protocolId, protocolData]: [string, any]) => {
-          protocolData.results?.forEach((result: any) => {
+        // Use a interface para tipar os dados ao iterar
+        Object.entries(data.assessments || {}).forEach(([protocolId, protocolData]) => {
+          const typedProtocolData = protocolData as ProtocolData; // Fazemos um cast para o tipo que definimos
+          typedProtocolData.results?.forEach((result) => {
             history.push({
               protocolId,
               result: {
@@ -152,7 +170,7 @@ export const useAssessmentActions = () => {
                 category: result.category,
                 unit: result.unit
               },
-              timestamp: new Date(result.timestamp || protocolData.lastUpdated),
+              timestamp: new Date(result.timestamp || typedProtocolData.lastUpdated),
               inputs: result.inputs || {}
             });
           });
