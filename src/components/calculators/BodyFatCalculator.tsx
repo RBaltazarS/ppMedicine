@@ -21,7 +21,7 @@ const bodyFatSchema = z.object({
   neck: z.number().min(20, 'Pescoço deve ser pelo menos 20cm').max(60, 'Pescoço deve ser no máximo 60cm'),
   hip: z.number().min(60, 'Quadril deve ser pelo menos 60cm').max(200, 'Quadril deve ser no máximo 200cm').optional(),
   age: z.number().min(15, 'Idade deve ser pelo menos 15 anos').max(80, 'Idade deve ser no máximo 80 anos'),
-  gender: z.enum(['male', 'female'], { required_error: 'Gênero é obrigatório' }),
+  gender: z.enum(['male', 'female'], { message: 'Gênero é obrigatório' }),
   method: z.enum(['navy', 'bmi'])
 });
 

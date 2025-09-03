@@ -7,6 +7,31 @@ import {
   validateBodyFat
 } from './calculations';
 
+// Tipos e Interfaces para os dados de teste e resultados
+// Assumindo que os tipos CooperTestInput, OneRMInput, BodyFatInput e CalculationResult já estão definidos em outro arquivo, como '@/types'
+import {
+  CooperTestInput,
+  OneRMInput,
+  BodyFatInput,
+  CalculationResult
+} from '@/types'; // Importe os tipos corretos aqui
+
+// Interface para um resultado individual de teste
+interface TestResult {
+  test: string;
+  input: CooperTestInput | OneRMInput | BodyFatInput;
+  result?: CalculationResult;
+  error?: unknown;
+  passed: boolean;
+}
+
+// Interface para o resumo dos resultados
+interface TestSummary {
+  passed: number;
+  failed: number;
+  results: TestResult[];
+}
+
 // Test data sets
 const cooperTestCases = [
   {
@@ -72,10 +97,10 @@ const bodyFatTestCases = [
 ];
 
 // Test functions
-export function testCooperCalculations(): { passed: number; failed: number; results: any[] } {
+export function testCooperCalculations(): TestSummary {
   let passed = 0;
   let failed = 0;
-  const results: any[] = [];
+  const results: TestResult[] = [];
 
   console.log('🧪 Testing Cooper Test Calculations...');
 
@@ -99,7 +124,7 @@ export function testCooperCalculations(): { passed: number; failed: number; resu
         passed: isVO2MaxCorrect
       });
 
-    } catch (error) {
+    } catch (error: unknown) {
       failed++;
       console.log(`❌ Test ${index + 1}: ERROR - ${error}`);
       results.push({
@@ -114,10 +139,10 @@ export function testCooperCalculations(): { passed: number; failed: number; resu
   return { passed, failed, results };
 }
 
-export function testOneRMCalculations(): { passed: number; failed: number; results: any[] } {
+export function testOneRMCalculations(): TestSummary {
   let passed = 0;
   let failed = 0;
-  const results: any[] = [];
+  const results: TestResult[] = [];
 
   console.log('🧪 Testing 1RM Calculations...');
 
@@ -141,7 +166,7 @@ export function testOneRMCalculations(): { passed: number; failed: number; resul
         passed: isInRange
       });
 
-    } catch (error) {
+    } catch (error: unknown) {
       failed++;
       console.log(`❌ Test ${index + 1}: ERROR - ${error}`);
       results.push({
@@ -156,10 +181,10 @@ export function testOneRMCalculations(): { passed: number; failed: number; resul
   return { passed, failed, results };
 }
 
-export function testBodyFatCalculations(): { passed: number; failed: number; results: any[] } {
+export function testBodyFatCalculations(): TestSummary {
   let passed = 0;
   let failed = 0;
-  const results: any[] = [];
+  const results: TestResult[] = [];
 
   console.log('🧪 Testing Body Fat Calculations...');
 
@@ -183,7 +208,7 @@ export function testBodyFatCalculations(): { passed: number; failed: number; res
         passed: isInRange
       });
 
-    } catch (error) {
+    } catch (error: unknown) {
       failed++;
       console.log(`❌ Test ${index + 1}: ERROR - ${error}`);
       results.push({
@@ -198,10 +223,10 @@ export function testBodyFatCalculations(): { passed: number; failed: number; res
   return { passed, failed, results };
 }
 
-export function testValidationFunctions(): { passed: number; failed: number; results: any[] } {
+export function testValidationFunctions(): TestSummary {
   let passed = 0;
   let failed = 0;
-  const results: any[] = [];
+  const results: TestResult[] = [];
 
   console.log('🧪 Testing Validation Functions...');
 
@@ -242,9 +267,9 @@ export function testValidationFunctions(): { passed: number; failed: number; res
   }
 
   results.push(
-    { test: 'Cooper Validation', passed: validCooper.isValid && !invalidCooper.isValid },
-    { test: '1RM Validation', passed: validOneRM.isValid && !invalidOneRM.isValid },
-    { test: 'Body Fat Validation', passed: validBodyFat.isValid && !invalidBodyFat.isValid }
+    { test: 'Cooper Validation', input: { distance: 0, age: 0, gender: 'male' }, passed: validCooper.isValid && !invalidCooper.isValid },
+    { test: '1RM Validation', input: { weight: 0, repetitions: 0, exercise: 'bench-press', experience: 'beginner' }, passed: validOneRM.isValid && !invalidOneRM.isValid },
+    { test: 'Body Fat Validation', input: { method: 'navy', height: 0, weight: 0, waist: 0, neck: 0, age: 0, gender: 'male' }, passed: validBodyFat.isValid && !invalidBodyFat.isValid }
   );
 
   return { passed, failed, results };

@@ -5,7 +5,7 @@ import { Layout } from '@/components/layout/Layout';
 import { CooperTestCalculator } from '@/components/calculators/CooperTestCalculator';
 import { OneRMCalculator } from '@/components/calculators/OneRMCalculator';
 import { BodyFatCalculator } from '@/components/calculators/BodyFatCalculator';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Card, CardHeader, /*CardContent*/ } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Dumbbell, Users, ChevronRight, Target, Clock, BarChart3 } from 'lucide-react';

@@ -18,7 +18,7 @@ const oneRMSchema = z.object({
   weight: z.number().min(1, 'Peso deve ser pelo menos 1kg').max(500, 'Peso deve ser no máximo 500kg'),
   repetitions: z.number().min(1, 'Deve ser pelo menos 1 repetição').max(20, 'Máximo 20 repetições para estimativa confiável'),
   exercise: z.string().min(1, 'Exercício é obrigatório'),
-  experience: z.enum(['beginner', 'intermediate', 'advanced'], { required_error: 'Nível de experiência é obrigatório' })
+  experience: z.enum(['beginner', 'intermediate', 'advanced'], { message: 'Nível de experiência é obrigatório' })
 });
 
 type OneRMFormData = z.infer<typeof oneRMSchema>;

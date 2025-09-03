@@ -17,7 +17,7 @@ import { CalculationResult } from '@/types';
 const cooperTestSchema = z.object({
   distance: z.number().min(500, 'Distância deve ser pelo menos 500m').max(5000, 'Distância deve ser no máximo 5000m'),
   age: z.number().min(15, 'Idade deve ser pelo menos 15 anos').max(80, 'Idade deve ser no máximo 80 anos'),
-  gender: z.enum(['male', 'female'], { required_error: 'Gênero é obrigatório' }),
+  gender: z.enum(['male', 'female'], { message: 'Gênero é obrigatório' }),
   weight: z.number().min(30).max(200).optional()
 });
 

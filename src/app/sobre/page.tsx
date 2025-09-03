@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Layout } from '@/components/layout/Layout';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Card, /*CardHeader, CardContent*/ } from '@/components/ui/Card';
 import { motion } from 'framer-motion';
 import { Stethoscope, Target, Users, Award, Heart, Brain, Zap, TrendingUp } from 'lucide-react';
 
