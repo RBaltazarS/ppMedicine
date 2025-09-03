@@ -65,13 +65,13 @@ export const assessmentProtocols: AssessmentProtocol[] = [
     calculate: (inputs) => calculateCooperTest({
       distance: inputs.distance,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female',
+      gender: inputs.gender as unknown as 'male' | 'female',
       weight: inputs.weight
     }),
     validate: (inputs) => validateCooperTest({
       distance: inputs.distance,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female',
+      gender: inputs.gender as unknown as 'male' | 'female',
       weight: inputs.weight
     })
   },
@@ -136,14 +136,16 @@ export const assessmentProtocols: AssessmentProtocol[] = [
     calculate: (inputs) => calculateOneRM({
       weight: inputs.weight,
       repetitions: inputs.repetitions,
-      exercise: inputs.exercise,
-      experience: inputs.experience as 'beginner' | 'intermediate' | 'advanced'
+      // Conversão segura para o tipo de string literal
+      exercise: inputs.exercise as unknown as 'bench-press' | 'squat' | 'deadlift' | 'overhead-press' | 'other',
+      experience: inputs.experience as unknown as 'beginner' | 'intermediate' | 'advanced'
     }),
     validate: (inputs) => validateOneRM({
       weight: inputs.weight,
       repetitions: inputs.repetitions,
-      exercise: inputs.exercise,
-      experience: inputs.experience as 'beginner' | 'intermediate' | 'advanced'
+      // Conversão segura para o tipo de string literal
+      exercise: inputs.exercise as unknown as 'bench-press' | 'squat' | 'deadlift' | 'overhead-press' | 'other',
+      experience: inputs.experience as unknown as 'beginner' | 'intermediate' | 'advanced'
     })
   },
   {
@@ -240,7 +242,7 @@ export const assessmentProtocols: AssessmentProtocol[] = [
       neck: inputs.neck,
       hip: inputs.hip,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female'
+      gender: inputs.gender as unknown as 'male' | 'female'
     }),
     validate: (inputs) => validateBodyFat({
       method: 'navy',
@@ -250,7 +252,7 @@ export const assessmentProtocols: AssessmentProtocol[] = [
       neck: inputs.neck,
       hip: inputs.hip,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female'
+      gender: inputs.gender as unknown as 'male' | 'female'
     })
   },
   {
@@ -311,14 +313,14 @@ export const assessmentProtocols: AssessmentProtocol[] = [
       height: inputs.height,
       weight: inputs.weight,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female'
+      gender: inputs.gender as unknown as 'male' | 'female'
     }),
     validate: (inputs) => validateBodyFat({
       method: 'bmi',
       height: inputs.height,
       weight: inputs.weight,
       age: inputs.age,
-      gender: inputs.gender as 'male' | 'female'
+      gender: inputs.gender as unknown as 'male' | 'female'
     })
   }
 ];
