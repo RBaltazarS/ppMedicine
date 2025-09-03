@@ -3,6 +3,8 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import ErrorBoundary from '../ui/ErrorBoundary';
 
+
+
 interface LayoutProps {
   children: React.ReactNode;
 }
