@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { Layout } from '@/components/layout/Layout';
-import { Button } from '@/components/ui/Button';
+//import { Layout } from '@/components/layout/Layout';
+//import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
 import { Home, Search, ArrowLeft, Stethoscope } from 'lucide-react';
 
 
 export default function NotFound() {
   return (
-    <Layout>
+   // <Layout>
       <div className="min-h-[70vh] flex items-center justify-center bg-gray-50 px-4">
         <div className="max-w-md w-full text-center">
           <motion.div
@@ -60,21 +60,19 @@ export default function NotFound() {
             className="space-y-4"
           >
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/" passHref>
-                {/* Adicione passHref se o Button for um <a> */}
-                <Button variant="primary" className="w-full">
-                  <Home className="h-4 w-4 mr-2" />
-                  Página Inicial
-                </Button>
-              </Link>
-              
-              <Link href="/protocolos" passHref>
-                <Button variant="outline" className="w-full">
-                  <Search className="h-4 w-4 mr-2" />
-                  Ver Protocolos
-                </Button>
-              </Link>
-            </div>
+          <Link href="/" passHref>
+            <a className="w-full bg-blue-600 text-white py-2 px-4 rounded flex items-center justify-center">
+              <Home className="h-4 w-4 mr-2" />
+              Página Inicial
+            </a>
+          </Link>
+          <Link href="/protocolos" passHref>
+            <a className="w-full border border-blue-600 text-blue-600 py-2 px-4 rounded flex items-center justify-center">
+              <Search className="h-4 w-4 mr-2" />
+              Ver Protocolos
+            </a>
+          </Link>
+        </div>
 
             <Link
               href="/"
@@ -100,6 +98,6 @@ export default function NotFound() {
           </motion.div>
         </div>
       </div>
-    </Layout>
+   // </Layout>
   );
 }
