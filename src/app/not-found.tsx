@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
 import { Home, Search, ArrowLeft, Stethoscope } from 'lucide-react';
 
+
 export default function NotFound() {
   return (
     <Layout>
@@ -59,14 +60,15 @@ export default function NotFound() {
             className="space-y-4"
           >
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/" className="flex-1">
+              <Link href="/" passHref>
+                {/* Adicione passHref se o Button for um <a> */}
                 <Button variant="primary" className="w-full">
                   <Home className="h-4 w-4 mr-2" />
                   Página Inicial
                 </Button>
               </Link>
               
-              <Link href="/protocolos" className="flex-1">
+              <Link href="/protocolos" passHref>
                 <Button variant="outline" className="w-full">
                   <Search className="h-4 w-4 mr-2" />
                   Ver Protocolos
